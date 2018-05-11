@@ -11,15 +11,13 @@ provider:
   # allow use of ${AWS::blah} CFN syntax
   variableSyntax: "\\${((?!AWS)[ ~:a-zA-Z0-9._'\",\\-\\/\\(\\)]+?)}"
 
-#  iamRoleStatements:
-#    - Effect: Allow
-#      Action: ssm:GetParameter
-#      Resource:
-#        Fn::Sub: arn:aws:ssm:${AWS::Region}:${AWS::AccountId}:parameter/${self:service}/${self:custom.stage}/*
-#    - Effect: Allow
-#      Action:  kms:Decrypt
-#      Resource:
-#        Rn::Sub: arn:aws:kms:${AWS::Region}:${AWS::AccountId}:key/*
+  iamRoleStatements:
+    - Effect: Allow
+      Action: ssm:GetParameters
+      Resource: arn:aws:ssm:us-east-1:704903784842:parameter/bike2workbot/*
+    - Effect: Allow
+      Action:  kms:Decrypt
+      Resource:  arn:aws:kms:us-east-1:704903784842:key/bdf6fdbd-3928-44ae-9c1c-50cbbcb736ac 
 
 
   environment:
