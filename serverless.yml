@@ -1,0 +1,41 @@
+service: bike-to-work-bot
+  
+custom:
+  stage: ${opt:stage, self:provider.stage} # shortcut for current stage
+
+provider:
+  name: aws
+  runtime: python3.6
+  stage: dev
+  region: us-east-1
+  # allow use of ${AWS::blah} CFN syntax
+  variableSyntax: "\\${((?!AWS)[ ~:a-zA-Z0-9._'\",\\-\\/\\(\\)]+?)}"
+
+#  iamRoleStatements:
+#    - Effect: Allow
+#      Action: ssm:GetParameter
+#      Resource:
+#        Fn::Sub: arn:aws:ssm:${AWS::Region}:${AWS::AccountId}:parameter/${self:service}/${self:custom.stage}/*
+#    - Effect: Allow
+#      Action:  kms:Decrypt
+#      Resource:
+#        Rn::Sub: arn:aws:kms:${AWS::Region}:${AWS::AccountId}:key/*
+
+
+  environment:
+    STAGE: ${self:custom.stage}
+
+package:
+  include:
+    - handler.py
+  exclude:
+    - '**/*'
+
+plugins:
+  - serverless-python-requirements
+
+functions:
+  tweet:
+    handler: handler.tweet
+    events:
+      - schedule: cron(0 16 * * ? *)
