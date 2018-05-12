@@ -36,4 +36,4 @@ functions:
   tweet:
     handler: handler.tweet
     events:
-      - schedule: cron(0 16 * * ? *)
+      - schedule: cron(0 16 ? * MON-FRI *)
