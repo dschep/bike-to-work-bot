@@ -12,6 +12,7 @@ https://twitter.com/bikeToWorkDaily
  * `/bike2workbot/consumer_secret`
  * `/bike2workbot/access_token`
  * `/bike2workbot/access_token_secret`
+5. If encrypted variables were used, update the ARN [here](https://github.com/dschep/bike-to-work-bot/blob/master/serverless.yml#L20) to the KMS key you used
 4. Install pipenv, serverless, download the project, install dependencies, deploy!
 ```
 sudo pip install pipenv
