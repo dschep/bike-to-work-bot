@@ -2,7 +2,9 @@
   "name": "bike-to-work-bot",
   "description": "",
   "version": "0.1.0",
-  "dependencies": {},
+  "dependencies": {
+    "@serverless/enterprise-plugin": "^0.2.0"
+  },
   "devDependencies": {
     "serverless-python-requirements": "^4.0.0"
   }

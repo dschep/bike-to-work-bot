@@ -1,10 +1,13 @@
 service: bike-to-work-bot
+tenant: personal
+app: bike-to-work-daily
   
 custom:
   stage: ${opt:stage, self:provider.stage} # shortcut for current stage
 
 provider:
   name: aws
+  credentials: ${secrets:aws-creds}
   runtime: python3.6
   stage: dev
   region: us-east-1
@@ -31,6 +34,7 @@ package:
 
 plugins:
   - serverless-python-requirements
+  - '@serverless/enterprise-plugin'
 
 functions:
   tweet:
