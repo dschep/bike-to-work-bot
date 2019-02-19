@@ -8,7 +8,7 @@ custom:
 provider:
   name: aws
   credentials: ${secrets:aws-creds}
-  runtime: python3.6
+  runtime: python3.7
   stage: dev
   region: us-east-1
   # allow use of ${AWS::blah} CFN syntax
