@@ -1,22 +1,22 @@
 workflow "Deploy master branch" {
   on = "push"
-  resolves = ["Deploy with Serverless"]
+  resolves = ["serverless deploy"]
 }
 
-action "Only on master branch" {
+action "master branch only" {
   uses = "actions/bin/filter@master"
   args = "branch master"
 }
 
-action "Install dependencies" {
+action "npm install" {
   uses = "actions/npm@master"
   args = "install"
-  needs = ["Only on master branch"]
+  needs = ["master branch only"]
 }
 
-action "Deploy with Serverless" {
-  uses = "serverless/github-action@master"
+action "serverless deploy" {
+  uses = "dschep/serverless-github-action@master"
   args = "deploy"
-  needs = ["Install dependencies"]
+  needs = ["npm install"]
   secrets = ["SERVERLESS_ACCESS_KEY"]
 }
