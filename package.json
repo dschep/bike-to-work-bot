@@ -3,7 +3,7 @@
   "description": "",
   "version": "0.1.0",
   "dependencies": {
-    "@serverless/enterprise-plugin": "^0.2.0"
+    "@serverless/enterprise-plugin": "latest"
   },
   "devDependencies": {
     "serverless-python-requirements": "^4.0.0"
