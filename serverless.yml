@@ -7,7 +7,6 @@ custom:
 
 provider:
   name: aws
-  credentials: ${secrets:aws-creds}
   runtime: python3.7
   stage: dev
   region: us-east-1
