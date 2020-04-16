@@ -17,11 +17,9 @@ jobs:
     - uses: actions/checkout@v2
     - uses: actions/setup-node@v1
     - uses: actions/setup-python@v1
-    - name: Install Serverless
-      run: npm i -g serverless
-    - name: Install Deps
-      run: npm i
-    - name: Deploy
-      run: sls deploy
+    - run: npm i -g serverless
+    - run: pip install pipenv
+    - run: npm i
+    - run: sls deploy
       env:
         SERVERLESS_ACCESS_KEY: ${{ secrets.SERVERLESS_ACCESS_KEY }} 
