@@ -13,4 +13,4 @@ def tweet(event, context):
                       consumer_secret=context.parameters['/bike2workbot/consumer_secret'],
                       access_token_key=context.parameters['/bike2workbot/access_token'],
                       access_token_secret=context.parameters['/bike2workbot/access_token_secret'])
-    api.PostUpdate('Happy bike to work day!')
+    api.PostUpdate('Happy bike around and then back home day 😕')
